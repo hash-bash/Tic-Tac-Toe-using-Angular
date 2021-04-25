@@ -1,0 +1,22 @@
+<html>
+<body>
+<h1 class="heading">Tic Tac Toe</h1>
+<div class="container">
+  <h1 class="heading2">Current Player: {{ player }} </h1>
+  <main>
+    <app-square
+      (click)="makeMove(i)"
+      *ngFor="let val of squares; let i = index"
+      [value]="val">
+    </app-square>
+  </main>
+  <div class="popup center">
+    <div class="title">Game Over!</div>
+    <h2 *ngIf="winner" class="results">PLAYER {{ winner }} WON THE GAME</h2>
+    <h2 *ngIf="!winner" class="results">GAME DRAW</h2>
+    <button (click)="closePopup()" class="button">START NEW GAME!</button>
+  </div>
+</div>
+</body>
+</html>
+
